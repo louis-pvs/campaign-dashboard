@@ -1,0 +1,42 @@
+{
+  "name": "myapp-client",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "author": "louis-pvs",
+  "license": "MIT",
+  "proxy": {
+    "/auth/google": {
+      "target": "http://localhost:3001"
+    },
+    "/api/*": {
+      "target": "http://localhost:3001"
+    }
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start:app\" \"npm run start:server\"",
+    "start:app": "react-scripts start",
+    "start:server": "npm run start --prefix server",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.0",
+    "eslint": "^5.4.0",
+    "eslint-plugin-react": "^7.11.1",
+    "redux-devtools-extension": "^2.13.5"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^3.4.5"
+  }
+}
