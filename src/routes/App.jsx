@@ -18,8 +18,8 @@ const AppContainer = styled.div`
 
 class App extends PureComponent {
   state = {
-    selectedTheme: themes['defaultTheme'],
-    authenticated: false
+    authenticated: false,
+    selectedTheme: themes['defaultTheme']
   };
   componentDidMount() {
     this.props.fetchUser();
@@ -39,7 +39,7 @@ class App extends PureComponent {
           <BrowserRouter>
             <Fragment>
               <Loader loading={this.state.loading} />
-              <Header username={'guest'} />
+              <Header />
               {Object.keys(routes).map(route => (
                 <Route
                   key={route}

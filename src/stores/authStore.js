@@ -2,7 +2,7 @@ import * as ACTIONS from './actions';
 
 const INITIAL_STATE = {
   loading: false,
-  user: null
+  user: {}
 };
 
 export default function(state = INITIAL_STATE, action) {

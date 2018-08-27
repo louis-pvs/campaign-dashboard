@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import requireAuth from './requiredAuth';
 
 class DashboardContainer extends PureComponent {
   render() {
@@ -11,4 +10,4 @@ class DashboardContainer extends PureComponent {
   }
 }
 
-export default requireAuth(DashboardContainer);
+export default DashboardContainer;

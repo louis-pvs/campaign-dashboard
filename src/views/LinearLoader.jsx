@@ -4,11 +4,15 @@ import styled, { keyframes } from 'styled-components';
 const linearLoading = keyframes`
   0% {
     right: 100%; 
-    width: 10%;
+    width: 0%;
   }
   50% {
-    right: 50%; 
-    width: 50%;
+    right: 40%; 
+    width: 40%;
+  }
+  80% {
+    right: 20%;
+    width: 20%;
   }
   100% {
     right: 0%; 

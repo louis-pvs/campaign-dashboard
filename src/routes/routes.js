@@ -1,16 +1,28 @@
-import LandingContainer from '../containers/Landing';
-import DashboardContainer from '../containers/Dashboard';
+import Loadable from 'react-loadable';
+import requireAuth from './requiredAuth';
+import PageLoader from '../views/PageLoader';
 
 export default {
   landing: {
     placeholder: 'Home',
     path: '/',
-    component: () => LandingContainer
+    component: () =>
+      Loadable({
+        loader: () => import('./LandingPage'),
+        loading: PageLoader,
+        timeout: 5000
+      })
   },
   dashboard: {
-    requireAuth: true,
     placeholder: 'Profile',
     path: '/dashboard',
-    component: () => DashboardContainer
+    component: () =>
+      requireAuth(
+        Loadable({
+          loader: () => import('./DashboardPage'),
+          loading: PageLoader,
+          timeout: 5000
+        })
+      )
   }
 };
