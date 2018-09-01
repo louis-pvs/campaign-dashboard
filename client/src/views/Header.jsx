@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
@@ -7,10 +7,12 @@ import HeaderNav from './HeaderNav';
 import * as actions from '../stores/actions';
 
 const Nav = styled.nav`
-  padding: 1rem;
-  text-align: initial;
-  color: ${props => props.theme.textOnPrimary};
   background-color: ${props => props.theme.primary};
+  color: ${props => props.theme.textOnPrimary};
+  display: inline-block;
+  height: ${props => props.theme.headerHeight};
+  text-align: initial;
+  width: 100%;
 `;
 
 const StyledList = styled.ul`
@@ -20,6 +22,7 @@ const StyledList = styled.ul`
 `;
 const StyledListItem = styled.li`
   display: inline-block;
+  line-height: ${props => props.theme.headerHeight};
   padding: 0 0.5rem;
 `;
 
@@ -27,14 +30,15 @@ const StyledButton = styled.button`
   background: transparent;
   border: 0;
   color: inherit;
+  cursor: pointer;
   font: inherit;
+  height: ${props => props.theme.headerHeight};
   outline: none;
   padding: 0;
-  cursor: pointer;
 `;
 
 const Header = ({ user, authenticated, logoutUser }) => {
-  const UserNameButton = () => {
+  const UsernameButton = () => {
     if (!user || !user.displayName) return null;
     return (
       <StyledListItem>
@@ -45,11 +49,14 @@ const Header = ({ user, authenticated, logoutUser }) => {
   return (
     <Nav>
       <StyledList>
-        <UserNameButton />
         {authenticated ? (
-          <StyledListItem>
-            <StyledButton onClick={logoutUser}>Logout</StyledButton>
-          </StyledListItem>
+          <Fragment>
+            <UsernameButton />
+            <StyledListItem>Credit: {user.credits}</StyledListItem>
+            <StyledListItem>
+              <StyledButton onClick={logoutUser}>Logout</StyledButton>
+            </StyledListItem>
+          </Fragment>
         ) : (
           <StyledListItem>
             <a href="/auth/google">Login with Google+</a>

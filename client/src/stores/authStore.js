@@ -2,7 +2,7 @@ import * as ACTIONS from './actions';
 
 const INITIAL_STATE = {
   loading: false,
-  user: {}
+  user: null
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -10,9 +10,13 @@ export default function(state = INITIAL_STATE, action) {
   case ACTIONS.TYPES.CHANGE_USER_LOAD:
     return { ...state, loading: action.payload };
   case ACTIONS.TYPES.FETCH_USER:
-    return { ...state, user: action.payload, loading: false };
   case ACTIONS.TYPES.LOGOUT_USER:
-    return { ...state, user: action.payload, loading: false };
+  case ACTIONS.TYPES.POST_TOKEN:
+    return {
+      ...state,
+      user: action.error ? state.user : action.payload,
+      loading: false
+    };
   default:
     return state;
   }

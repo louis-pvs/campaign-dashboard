@@ -26,12 +26,12 @@ const LoadingContainer = styled.div`
   float: left;
   height: 3px;
   margin: 0;
-  position: relative;
+  position: absolute;
   transition: background-color 0.25s ease-in-out;
   width: 100%;
 
   &::after {
-    animation: ${props => (props.loading ? linearLoading : '')} 1.5s linear 1.5s
+    animation: ${props => (props.loading ? linearLoading : '')} 1.5s linear
       infinite;
     background-color: ${props => props.theme.primaryLight};
     content: '';

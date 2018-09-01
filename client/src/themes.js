@@ -1,3 +1,10 @@
+import { toRem } from './utils';
+const commonVars = {
+  baseSize: '16px',
+  text: '#212121',
+  headerHeight: toRem(50)
+};
+
 export const defaultTheme = {
   primary: '#4a148c',
   primaryLight: '#7c43bd',
@@ -5,9 +12,9 @@ export const defaultTheme = {
   secondary: '#fbc02d',
   secondaryLight: '#fff263',
   secondaryDark: '#c49000',
-  text: '#212121',
   textOnPrimary: '#f3e5f5',
-  textOnSecondary: '#3e2723'
+  textOnSecondary: '#3e2723',
+  ...commonVars
 };
 
 export const alternateTheme = {
@@ -17,7 +24,7 @@ export const alternateTheme = {
   secondary: '#1565c0',
   secondaryLight: '#5e92f3',
   secondaryDark: '#003c8f',
-  text: '#212121',
   textOnPrimary: '#3e2723',
-  textOnSecondary: '#eceff1'
+  textOnSecondary: '#eceff1',
+  ...commonVars
 };

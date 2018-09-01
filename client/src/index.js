@@ -8,7 +8,7 @@ import App from './routes/App';
 import stores from './stores';
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,900|Roboto');
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,900|Roboto');
   html {
     font-size: 16px;
   }
@@ -18,7 +18,7 @@ injectGlobal`
     font-family: Roboto, sans-serif;
   }
   h1 {
-    font-family: Montserrat;
+    font-family: Roboto Condensed;
   }
   a {
     color: inherit;

@@ -14,6 +14,7 @@ const StyledList = styled.ul`
 `;
 const StyledListItem = styled.li`
   display: inline-block;
+  line-height: ${props => props.theme.headerHeight};
   padding: 0 0.5rem;
 `;
 

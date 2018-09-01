@@ -1,44 +1,23 @@
 {
-  "name": "myapp-client",
+  "name": "myapp-server",
   "version": "0.1.0",
-  "private": true,
   "main": "index.js",
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.7.1"
+  },
   "author": "louis-pvs",
   "license": "MIT",
-  "proxy": {
-    "/auth/google": {
-      "target": "http://localhost:3001"
-    },
-    "/api/*": {
-      "target": "http://localhost:3001"
-    }
-  },
+  "private": true,
   "scripts": {
-    "start": "concurrently \"npm run start:app\" \"npm run start:server\"",
-    "start:app": "react-scripts start",
-    "start:server": "npm run start --prefix server",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "concurrently": "^4.0.0",
-    "eslint": "^5.4.0",
-    "eslint-plugin-react": "^7.11.1",
-    "redux-devtools-extension": "^2.13.5"
+    "start": "nodemon index.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "prop-types": "^15.6.2",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-loadable": "^5.5.0",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
-    "react-stripe-checkout": "^2.6.3",
-    "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0",
-    "styled-components": "^3.4.5"
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.9",
+    "nodemon": "^1.18.3",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0"
   }
 }
